@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="content"></div>
+	<script>
+	// Object literal
+		var person = {
+		firstName : 'danglv',
+		lastName: 'levan',
+		showName: function(){
+		return (this.firstName+' '+this.lastName);
+	}
+	};
+	document.getElementById("content").innerHTML = person.showName();
+
+	// Object contructor
+	var psn = new Object();
+	psn.fullName = 'Le Van Dang';
+	psn.Sex = 'Male';
+	psn.Age = '24';
+	psn.showName = function() {
+		return (this.fullName+'-'+this.Sex+'-'+this.Age);
+	}
+
+	document.getElementById("content").innerHTML = psn.showName();
+
+	// 
+	function person1(fullname,age,sex){
+		this.fullName = fullname;
+		this.age = age;
+		this.showName = function(){
+			return this.fullName+'-'+this['age'];
+		};
+	}
+
+	var ps1 = new person1('aaaaaaaa',20,'male');
+	var ps2 = new person1('bbbbbb',24,'male');
+	document.getElementById('content').innerHTML = ps1.showName();
+	delete ps1.age;
+	ps1.xxx = 'xxx';
+	for (var i in ps1) {
+		console.log(i);
+	};
+
+	
+	var sV = "abd";
+	console.log(typeof sV);
+
+	var iN = 10;
+	console.log(iN.toString(10));
+
+	var iNum = parseInt("0xA");
+	console.log(iNum);
+
+	var christmasList = {mike:"Book", jason:"sweater", chelsea:"iPad" };
+	var obj = JSON.stringify(christmasList);
+     console.log(JSON.stringify(obj));
+     console.log(typeof obj);
+     var num = 999999;
+     console.log(num.toFixed(2));
+     console.log(num.toPrecision(5));
+	</script>
+</body>
+</html>
